@@ -10,7 +10,7 @@ public class SCP1 {
     public static void main(String args[])throws UnknownHostException, IOException{
         //Fazendo lado cliente primeiro
 
-        Socket socketCliente = new Socket("104.215.122.68", 80); // adicionar endereço IP de P4
+        Socket socketCliente = new Socket("104.215.122.68", 10000); // adicionar endereço IP de P4
         System.out.println("INICIANDO CLIENTE P1");
 
         // Cria canal para enviar dados
@@ -19,7 +19,7 @@ public class SCP1 {
         fluxoSaida.writeUTF("Oi eu sou P1");
 
         //Fazendo o lado servidor que recebe de p4
-         ServerSocket socketServidor = new ServerSocket(80);
+         ServerSocket socketServidor = new ServerSocket(10000);
 
          System.out.println("INICIANDO SERVIDOR P1");
 

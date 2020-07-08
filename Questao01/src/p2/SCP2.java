@@ -12,7 +12,7 @@ public class SCP2 {
     public static void main(String args[])throws UnknownHostException, IOException{
         //Fazendo lado cliente primeiro
 
-        Socket socketCliente = new Socket("104.215.89.119", 80); // adicionar endereço IP de P1
+        Socket socketCliente = new Socket("104.215.89.119", 10000); // adicionar endereço IP de P1
         System.out.println("INICIANDO CLIENTE P2");
 
         // Cria canal para enviar dados
@@ -21,7 +21,7 @@ public class SCP2 {
         fluxoSaida.writeUTF("Oi eu sou P2");
 
         //Fazendo o lado servidor que recebe de p1
-         ServerSocket socketServidor = new ServerSocket(80);
+         ServerSocket socketServidor = new ServerSocket(10000);
 
          System.out.println("INICIANDO SERVIDOR P2");
 
