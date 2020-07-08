@@ -1,0 +1,47 @@
+package p3;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class SCP3 {
+
+	public static void main(String[] args) throws UnknownHostException, IOException{
+		// TODO Auto-generated method stub
+		 //Fazendo lado cliente primeiro
+
+        String address = "104.215.89.119";
+		Socket socketCliente = new Socket(address, 80); // adicionar endere�o do roteador p1
+        System.out.println("INICIANDO CLIENTE P3");
+
+        // Cria canal para enviar dados
+        DataOutputStream fluxoSaida = new DataOutputStream(socketCliente.getOutputStream());
+
+        fluxoSaida.writeUTF("Oi eu sou P3");
+
+        //Fazendo o lado servidor que recebe de Roteador P1
+         ServerSocket socketServidor = new ServerSocket(80);
+
+         System.out.println("INICIANDO SERVIDOR P3");
+
+         Socket socket = socketServidor.accept(); // aceito conexões via porta 5000
+
+         System.out.println("IP do cliente conectado" + socket.getInetAddress().getHostAddress());
+
+         //Cria um canal para receber dados de P1
+        DataInputStream fluxoEntrada = new DataInputStream(socket.getInputStream());
+
+        String msg = fluxoEntrada.readUTF();
+
+        System.out.println(" Mensagem recebida do cliente: " + msg);
+        
+        socketCliente.close();
+        socketServidor.close();
+
+
+	}
+
+}
