@@ -27,14 +27,14 @@ public class SCP4 {
 
          Socket socket = socketServidor.accept(); // aceito conexões via porta 5000
 
-         System. out .println("IP do cliente conectado" + socket.getInetAddress().getHostAddress());
+         System.out.println("IP do cliente conectado" + socket.getInetAddress().getHostAddress());
 
          //Cria um canal para receber dados de P4
         DataInputStream fluxoEntrada = new DataInputStream(socket.getInputStream());
 
         String msg = fluxoEntrada.readUTF();
 
-        System. out .println(" Mensagem recebida do cliente: " + msg);
+        System.out.println(" Mensagem recebida do cliente: " + msg);
     }
     
 }
